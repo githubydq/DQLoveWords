@@ -96,9 +96,7 @@
             [WordDao save:word];
             [self intoArrayByWord:word];
         }else{
-            if ([word.name isEqualToString:self.model.name] && [word.paraphrase isEqualToString:self.model.paraphrase]) {
-                
-            }else{
+            if (!([word.name isEqualToString:self.model.name] && [word.paraphrase isEqualToString:self.model.paraphrase]) || self.model.state != self.segment.selectedSegmentIndex) {
                 [self moveArrayWithWord:self.model];
             }
         }
