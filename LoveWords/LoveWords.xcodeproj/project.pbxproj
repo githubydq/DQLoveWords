@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		6DBDBF591B832FD0323D9FF6 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A0B365F787B2C574F2E50AC8 /* libPods.a */; };
+		B36D8BD91CCA3E8E00A1571E /* DQSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B36D8BD71CCA3E8E00A1571E /* DQSearchViewController.m */; };
+		B36D8BDA1CCA3E8E00A1571E /* DQSearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B36D8BD81CCA3E8E00A1571E /* DQSearchViewController.xib */; };
 		B37356061CC7F806007E7FDF /* DQWordShowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = B37356051CC7F806007E7FDF /* DQWordShowLayout.m */; };
 		B373560C1CC80128007E7FDF /* DQWordCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B373560A1CC80128007E7FDF /* DQWordCollectionViewCell.m */; };
 		B373560D1CC80128007E7FDF /* DQWordCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B373560B1CC80128007E7FDF /* DQWordCollectionViewCell.xib */; };
@@ -38,6 +40,9 @@
 		3278C06BA9DD55F18A2CA4AE /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		A0B365F787B2C574F2E50AC8 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		A881C91F358B9BE52059E2C6 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		B36D8BD61CCA3E8E00A1571E /* DQSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DQSearchViewController.h; sourceTree = "<group>"; };
+		B36D8BD71CCA3E8E00A1571E /* DQSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DQSearchViewController.m; sourceTree = "<group>"; };
+		B36D8BD81CCA3E8E00A1571E /* DQSearchViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DQSearchViewController.xib; sourceTree = "<group>"; };
 		B37356041CC7F806007E7FDF /* DQWordShowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DQWordShowLayout.h; sourceTree = "<group>"; };
 		B37356051CC7F806007E7FDF /* DQWordShowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DQWordShowLayout.m; sourceTree = "<group>"; };
 		B37356091CC80128007E7FDF /* DQWordCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DQWordCollectionViewCell.h; sourceTree = "<group>"; };
@@ -105,6 +110,16 @@
 				A0B365F787B2C574F2E50AC8 /* libPods.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B36D8BD51CCA3E6F00A1571E /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				B36D8BD61CCA3E8E00A1571E /* DQSearchViewController.h */,
+				B36D8BD71CCA3E8E00A1571E /* DQSearchViewController.m */,
+				B36D8BD81CCA3E8E00A1571E /* DQSearchViewController.xib */,
+			);
+			path = Search;
 			sourceTree = "<group>";
 		};
 		B37356031CC7F7D2007E7FDF /* Layout */ = {
@@ -202,6 +217,7 @@
 			children = (
 				B3FA79261CC7CCF8001C1372 /* Home */,
 				B3FA79401CC7E239001C1372 /* Add */,
+				B36D8BD51CCA3E6F00A1571E /* Search */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -344,6 +360,7 @@
 				B37356121CC8091A007E7FDF /* DQAddWordViewController.xib in Resources */,
 				B3FA79071CC7C516001C1372 /* Assets.xcassets in Resources */,
 				B3FA792F1CC7CE7C001C1372 /* list.plist in Resources */,
+				B36D8BDA1CCA3E8E00A1571E /* DQSearchViewController.xib in Resources */,
 				B3FA79341CC7D2CA001C1372 /* DQMyWordsViewController.xib in Resources */,
 				B3FA79051CC7C516001C1372 /* Main.storyboard in Resources */,
 			);
@@ -415,6 +432,7 @@
 				B38D56AE1CCA397E00EC9A6E /* NSDate+DQHelper.m in Sources */,
 				B37356061CC7F806007E7FDF /* DQWordShowLayout.m in Sources */,
 				B38D56A91CCA2E8600EC9A6E /* Singleton.m in Sources */,
+				B36D8BD91CCA3E8E00A1571E /* DQSearchViewController.m in Sources */,
 				B37356111CC8091A007E7FDF /* DQAddWordViewController.m in Sources */,
 				B373560C1CC80128007E7FDF /* DQWordCollectionViewCell.m in Sources */,
 			);

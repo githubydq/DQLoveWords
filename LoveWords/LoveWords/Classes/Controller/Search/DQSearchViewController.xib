@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DQSearchViewController">
+            <connections>
+                <outlet property="myTable" destination="xQP-H5-mZK" id="Npa-Md-9jM"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="xQP-H5-mZK">
+                    <rect key="frame" x="0.0" y="64" width="375" height="536"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="pIb-Ne-mKR"/>
+                        <outlet property="delegate" destination="-1" id="Mhe-mF-epE"/>
+                    </connections>
+                </tableView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="xQP-H5-mZK" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="64" id="mR7-hg-Qqw"/>
+                <constraint firstAttribute="bottom" secondItem="xQP-H5-mZK" secondAttribute="bottom" id="mVL-v7-S6W"/>
+                <constraint firstAttribute="trailing" secondItem="xQP-H5-mZK" secondAttribute="trailing" id="qfz-lL-ZbE"/>
+                <constraint firstItem="xQP-H5-mZK" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="v2P-cR-anZ"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="239.5" y="305"/>
+        </view>
+    </objects>
+</document>

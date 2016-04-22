@@ -8,6 +8,7 @@
 
 #import "DQWordShowLayout.h"
 #import "DQWordCollectionViewCell.h"
+#import "Word.h"
 
 @interface DQWordShowLayout ()
 @property(nonatomic,strong)NSMutableArray * attrsArray;
@@ -50,7 +51,17 @@ static CGFloat space = 10;
     CGFloat x = space;
     CGFloat y = self.YMax;
     CGFloat width = 375-space*2;
-    CGFloat height = 70;
+    
+    Word * model = [[Word alloc] init];
+    if (self.currentState == WordStateUnfamiliar) {
+        model = [Singleton shareInstance].firstArray[indexPath.row];
+    }else if (self.currentState == WordStateCommon){
+        model = [Singleton shareInstance].secondArray[indexPath.row];
+    }else if (self.currentState == WordStateCommon){
+        model = [Singleton shareInstance].thirdArray[indexPath.row];
+    }
+    CGRect rect = [model.paraphrase boundingRectWithSize:CGSizeMake(SCREEN_WIDTH-space*2-8*2, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:16],NSForegroundColorAttributeName:[UIColor blackColor]} context:nil];
+    CGFloat height = 46+rect.size.height+10;
     
     attrs.frame = CGRectMake(x, y, width, height);
     

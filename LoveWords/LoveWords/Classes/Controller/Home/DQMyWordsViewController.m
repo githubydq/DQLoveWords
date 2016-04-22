@@ -16,8 +16,11 @@
 #import "Word.h"
 #import "WordDao.h"
 
+#import "DQSearchViewController.h"
+
 @interface DQMyWordsViewController ()<UICollectionViewDataSource,UICollectionViewDelegate,DQAddWordDelegate>
 @property (weak, nonatomic) IBOutlet UICollectionView *myCollectionView;
+@property(nonatomic,strong)DQWordShowLayout * layout;
 @property(nonatomic,assign)WordState currentState;
 @property(nonatomic,strong)NSMutableArray * offsetArray;
 @end
@@ -55,6 +58,10 @@ static NSString * const identify = @"mywordcollecyioncell";
     }
     return _offsetArray;
 }
+-(void)setCurrentState:(WordState)currentState{
+    _currentState = currentState;
+    self.layout.currentState = currentState;
+}
 
 #pragma mark -
 #pragma mark load data
@@ -83,15 +90,25 @@ static NSString * const identify = @"mywordcollecyioncell";
 }
 
 -(void)configNavItem{
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"search32x32"] style:UIBarButtonItemStylePlain target:self action:@selector(myWordsNavLeftClick)];
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"search20x20"] style:UIBarButtonItemStylePlain target:self action:@selector(myWordsNavLeftClick)];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"复习" style:UIBarButtonItemStylePlain target:self action:@selector(myWordsNavRightClick)];
+}
+-(void)myWordsNavLeftClick{
+    DQSearchViewController * search = [[DQSearchViewController alloc] init];
+    UINavigationController * nav = [[UINavigationController alloc] initWithRootViewController:search];
+    self.hidesBottomBarWhenPushed = YES;
+    [self presentViewController:nav animated:NO completion:nil];
+    self.hidesBottomBarWhenPushed = NO;
+}
+-(void)myWordsNavRightClick{
+    
 }
 
 #pragma mark -
 #pragma mark config collection
 -(void)configCollection{
-    DQWordShowLayout * layout = [[DQWordShowLayout alloc] init];
-    [self.myCollectionView setCollectionViewLayout:layout];
+    self.layout = [[DQWordShowLayout alloc] init];
+    [self.myCollectionView setCollectionViewLayout:self.layout];
     [self.myCollectionView registerNib:[UINib nibWithNibName:@"DQWordCollectionViewCell" bundle:nil] forCellWithReuseIdentifier:identify];
     self.myCollectionView.showsVerticalScrollIndicator = NO;
     self.myCollectionView.backgroundColor = [UIColor grayColor];

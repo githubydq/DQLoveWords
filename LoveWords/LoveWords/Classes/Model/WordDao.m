@@ -101,4 +101,30 @@
     return nil;
 }
 
++(NSMutableArray *)findContainString:(NSString *)str{
+    FMDatabase * db = [self getCurrentDB];
+    if ([db open]) {
+        FMResultSet * rs = [db executeQuery:@"select * from word"];
+        NSMutableArray * wordArray = [NSMutableArray new];
+        while (rs.next) {
+            if ([[rs stringForColumnIndex:0] containsString:str]) {
+                Word * word = [[Word alloc] init];
+                word.name = [rs stringForColumnIndex:0];
+                word.paraphrase = [rs stringForColumnIndex:1];
+                word.state = [rs intForColumnIndex:2];
+                word.addDate = [rs stringForColumnIndex:3];
+                [wordArray insertObject:word atIndex:0];
+            }
+        }
+        [db close];
+        [wordArray sortUsingComparator:^NSComparisonResult(id  _Nonnull obj1, id  _Nonnull obj2) {
+            Word * word1 = obj1;
+            Word * word2 = obj2;
+            return [word2.addDate compare:word1.addDate];
+        }];
+        return wordArray;
+    }
+    return nil;
+}
+
 @end

@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface DQWordShowLayout : UICollectionViewLayout
-
+@property(nonatomic,assign)NSInteger currentState;
 @end

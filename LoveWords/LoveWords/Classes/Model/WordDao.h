@@ -14,4 +14,6 @@
 +(BOOL)update:(Word*)model;
 +(NSMutableArray*)findAll;
 +(NSMutableArray*)findAtState:(NSInteger)state;
+
++(NSMutableArray*)findContainString:(NSString*)str;
 @end
