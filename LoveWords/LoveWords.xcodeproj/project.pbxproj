@@ -1,0 +1,575 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		6DBDBF591B832FD0323D9FF6 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A0B365F787B2C574F2E50AC8 /* libPods.a */; };
+		B37356061CC7F806007E7FDF /* DQWordShowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = B37356051CC7F806007E7FDF /* DQWordShowLayout.m */; };
+		B373560C1CC80128007E7FDF /* DQWordCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B373560A1CC80128007E7FDF /* DQWordCollectionViewCell.m */; };
+		B373560D1CC80128007E7FDF /* DQWordCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B373560B1CC80128007E7FDF /* DQWordCollectionViewCell.xib */; };
+		B37356111CC8091A007E7FDF /* DQAddWordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B373560F1CC8091A007E7FDF /* DQAddWordViewController.m */; };
+		B37356121CC8091A007E7FDF /* DQAddWordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B37356101CC8091A007E7FDF /* DQAddWordViewController.xib */; };
+		B38D56A91CCA2E8600EC9A6E /* Singleton.m in Sources */ = {isa = PBXBuildFile; fileRef = B38D56A81CCA2E8600EC9A6E /* Singleton.m */; };
+		B38D56AE1CCA397E00EC9A6E /* NSDate+DQHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = B38D56AD1CCA397E00EC9A6E /* NSDate+DQHelper.m */; };
+		B3FA78FC1CC7C516001C1372 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B3FA78FB1CC7C516001C1372 /* main.m */; };
+		B3FA79051CC7C516001C1372 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B3FA79031CC7C516001C1372 /* Main.storyboard */; };
+		B3FA79071CC7C516001C1372 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B3FA79061CC7C516001C1372 /* Assets.xcassets */; };
+		B3FA790A1CC7C516001C1372 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B3FA79081CC7C516001C1372 /* LaunchScreen.storyboard */; };
+		B3FA791A1CC7C67D001C1372 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B3FA79171CC7C67D001C1372 /* Info.plist */; };
+		B3FA79251CC7CC2F001C1372 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B3FA79241CC7CC2F001C1372 /* AppDelegate.m */; };
+		B3FA792A1CC7CD8C001C1372 /* DQHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B3FA79281CC7CD8C001C1372 /* DQHomeViewController.m */; };
+		B3FA792B1CC7CD8C001C1372 /* DQHomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B3FA79291CC7CD8C001C1372 /* DQHomeViewController.xib */; };
+		B3FA792F1CC7CE7C001C1372 /* list.plist in Resources */ = {isa = PBXBuildFile; fileRef = B3FA792E1CC7CE7C001C1372 /* list.plist */; };
+		B3FA79331CC7D2CA001C1372 /* DQMyWordsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B3FA79311CC7D2CA001C1372 /* DQMyWordsViewController.m */; };
+		B3FA79341CC7D2CA001C1372 /* DQMyWordsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B3FA79321CC7D2CA001C1372 /* DQMyWordsViewController.xib */; };
+		B3FA79381CC7D2D7001C1372 /* DQSetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B3FA79361CC7D2D7001C1372 /* DQSetViewController.m */; };
+		B3FA79391CC7D2D7001C1372 /* DQSetViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B3FA79371CC7D2D7001C1372 /* DQSetViewController.xib */; };
+		B3FA793D1CC7DBB4001C1372 /* DQTitleChoiceView.m in Sources */ = {isa = PBXBuildFile; fileRef = B3FA793C1CC7DBB4001C1372 /* DQTitleChoiceView.m */; };
+		B3FA793F1CC7DBC9001C1372 /* DQTitleChoiceView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B3FA793E1CC7DBC9001C1372 /* DQTitleChoiceView.xib */; };
+		B3FA79431CC7E976001C1372 /* Word.m in Sources */ = {isa = PBXBuildFile; fileRef = B3FA79421CC7E976001C1372 /* Word.m */; };
+		B3FA79461CC7EA6F001C1372 /* WordDao.m in Sources */ = {isa = PBXBuildFile; fileRef = B3FA79451CC7EA6F001C1372 /* WordDao.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		3278C06BA9DD55F18A2CA4AE /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		A0B365F787B2C574F2E50AC8 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		A881C91F358B9BE52059E2C6 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		B37356041CC7F806007E7FDF /* DQWordShowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DQWordShowLayout.h; sourceTree = "<group>"; };
+		B37356051CC7F806007E7FDF /* DQWordShowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DQWordShowLayout.m; sourceTree = "<group>"; };
+		B37356091CC80128007E7FDF /* DQWordCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DQWordCollectionViewCell.h; sourceTree = "<group>"; };
+		B373560A1CC80128007E7FDF /* DQWordCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DQWordCollectionViewCell.m; sourceTree = "<group>"; };
+		B373560B1CC80128007E7FDF /* DQWordCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DQWordCollectionViewCell.xib; sourceTree = "<group>"; };
+		B373560E1CC8091A007E7FDF /* DQAddWordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DQAddWordViewController.h; sourceTree = "<group>"; };
+		B373560F1CC8091A007E7FDF /* DQAddWordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DQAddWordViewController.m; sourceTree = "<group>"; };
+		B37356101CC8091A007E7FDF /* DQAddWordViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DQAddWordViewController.xib; sourceTree = "<group>"; };
+		B38D56A71CCA2E8600EC9A6E /* Singleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Singleton.h; sourceTree = "<group>"; };
+		B38D56A81CCA2E8600EC9A6E /* Singleton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Singleton.m; sourceTree = "<group>"; };
+		B38D56AA1CCA317600EC9A6E /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		B38D56AC1CCA397E00EC9A6E /* NSDate+DQHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+DQHelper.h"; sourceTree = "<group>"; };
+		B38D56AD1CCA397E00EC9A6E /* NSDate+DQHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+DQHelper.m"; sourceTree = "<group>"; };
+		B3FA78F71CC7C516001C1372 /* LoveWords.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LoveWords.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B3FA78FB1CC7C516001C1372 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		B3FA79041CC7C516001C1372 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		B3FA79061CC7C516001C1372 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		B3FA79091CC7C516001C1372 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		B3FA79171CC7C67D001C1372 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B3FA79231CC7CC2F001C1372 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		B3FA79241CC7CC2F001C1372 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		B3FA79271CC7CD8C001C1372 /* DQHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DQHomeViewController.h; sourceTree = "<group>"; };
+		B3FA79281CC7CD8C001C1372 /* DQHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DQHomeViewController.m; sourceTree = "<group>"; };
+		B3FA79291CC7CD8C001C1372 /* DQHomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DQHomeViewController.xib; sourceTree = "<group>"; };
+		B3FA792E1CC7CE7C001C1372 /* list.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = list.plist; sourceTree = "<group>"; };
+		B3FA79301CC7D2CA001C1372 /* DQMyWordsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DQMyWordsViewController.h; sourceTree = "<group>"; };
+		B3FA79311CC7D2CA001C1372 /* DQMyWordsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DQMyWordsViewController.m; sourceTree = "<group>"; };
+		B3FA79321CC7D2CA001C1372 /* DQMyWordsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DQMyWordsViewController.xib; sourceTree = "<group>"; };
+		B3FA79351CC7D2D7001C1372 /* DQSetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DQSetViewController.h; sourceTree = "<group>"; };
+		B3FA79361CC7D2D7001C1372 /* DQSetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DQSetViewController.m; sourceTree = "<group>"; };
+		B3FA79371CC7D2D7001C1372 /* DQSetViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DQSetViewController.xib; sourceTree = "<group>"; };
+		B3FA793B1CC7DBB4001C1372 /* DQTitleChoiceView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DQTitleChoiceView.h; sourceTree = "<group>"; };
+		B3FA793C1CC7DBB4001C1372 /* DQTitleChoiceView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DQTitleChoiceView.m; sourceTree = "<group>"; };
+		B3FA793E1CC7DBC9001C1372 /* DQTitleChoiceView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DQTitleChoiceView.xib; sourceTree = "<group>"; };
+		B3FA79411CC7E976001C1372 /* Word.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Word.h; sourceTree = "<group>"; };
+		B3FA79421CC7E976001C1372 /* Word.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Word.m; sourceTree = "<group>"; };
+		B3FA79441CC7EA6F001C1372 /* WordDao.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WordDao.h; sourceTree = "<group>"; };
+		B3FA79451CC7EA6F001C1372 /* WordDao.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WordDao.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		B3FA78F41CC7C516001C1372 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6DBDBF591B832FD0323D9FF6 /* libPods.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		48D969A03374EDA0D91969E0 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				3278C06BA9DD55F18A2CA4AE /* Pods.debug.xcconfig */,
+				A881C91F358B9BE52059E2C6 /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		A9965886EB2271324490C150 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A0B365F787B2C574F2E50AC8 /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B37356031CC7F7D2007E7FDF /* Layout */ = {
+			isa = PBXGroup;
+			children = (
+				B37356041CC7F806007E7FDF /* DQWordShowLayout.h */,
+				B37356051CC7F806007E7FDF /* DQWordShowLayout.m */,
+			);
+			path = Layout;
+			sourceTree = "<group>";
+		};
+		B37356081CC8010F007E7FDF /* collectionview */ = {
+			isa = PBXGroup;
+			children = (
+				B37356091CC80128007E7FDF /* DQWordCollectionViewCell.h */,
+				B373560A1CC80128007E7FDF /* DQWordCollectionViewCell.m */,
+				B373560B1CC80128007E7FDF /* DQWordCollectionViewCell.xib */,
+			);
+			path = collectionview;
+			sourceTree = "<group>";
+		};
+		B38D56AB1CCA394800EC9A6E /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				B38D56AC1CCA397E00EC9A6E /* NSDate+DQHelper.h */,
+				B38D56AD1CCA397E00EC9A6E /* NSDate+DQHelper.m */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
+		B3FA78EE1CC7C516001C1372 = {
+			isa = PBXGroup;
+			children = (
+				B3FA78F91CC7C516001C1372 /* LoveWords */,
+				B3FA78F81CC7C516001C1372 /* Products */,
+				48D969A03374EDA0D91969E0 /* Pods */,
+				A9965886EB2271324490C150 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		B3FA78F81CC7C516001C1372 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B3FA78F71CC7C516001C1372 /* LoveWords.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B3FA78F91CC7C516001C1372 /* LoveWords */ = {
+			isa = PBXGroup;
+			children = (
+				B3FA79111CC7C67D001C1372 /* Classes */,
+				B3FA79161CC7C67D001C1372 /* Resource */,
+				B3FA79031CC7C516001C1372 /* Main.storyboard */,
+				B3FA79061CC7C516001C1372 /* Assets.xcassets */,
+				B3FA79081CC7C516001C1372 /* LaunchScreen.storyboard */,
+				B38D56AA1CCA317600EC9A6E /* PrefixHeader.pch */,
+				B3FA78FA1CC7C516001C1372 /* Supporting Files */,
+			);
+			path = LoveWords;
+			sourceTree = "<group>";
+		};
+		B3FA78FA1CC7C516001C1372 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				B3FA78FB1CC7C516001C1372 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		B3FA79111CC7C67D001C1372 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				B3FA79221CC7CC2F001C1372 /* AppDelegate */,
+				B37356031CC7F7D2007E7FDF /* Layout */,
+				B38D56AB1CCA394800EC9A6E /* Category */,
+				B3FA791B1CC7C94E001C1372 /* Controller */,
+				B3FA791F1CC7C94E001C1372 /* Model */,
+				B3FA79201CC7C94E001C1372 /* View */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		B3FA79161CC7C67D001C1372 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				B3FA79171CC7C67D001C1372 /* Info.plist */,
+				B3FA792E1CC7CE7C001C1372 /* list.plist */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		B3FA791B1CC7C94E001C1372 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				B3FA79261CC7CCF8001C1372 /* Home */,
+				B3FA79401CC7E239001C1372 /* Add */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		B3FA791F1CC7C94E001C1372 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				B3FA79411CC7E976001C1372 /* Word.h */,
+				B3FA79421CC7E976001C1372 /* Word.m */,
+				B3FA79441CC7EA6F001C1372 /* WordDao.h */,
+				B3FA79451CC7EA6F001C1372 /* WordDao.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		B3FA79201CC7C94E001C1372 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B3FA793A1CC7DB98001C1372 /* view */,
+				B37356081CC8010F007E7FDF /* collectionview */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		B3FA79221CC7CC2F001C1372 /* AppDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				B3FA79231CC7CC2F001C1372 /* AppDelegate.h */,
+				B3FA79241CC7CC2F001C1372 /* AppDelegate.m */,
+				B38D56A71CCA2E8600EC9A6E /* Singleton.h */,
+				B38D56A81CCA2E8600EC9A6E /* Singleton.m */,
+			);
+			path = AppDelegate;
+			sourceTree = "<group>";
+		};
+		B3FA79261CC7CCF8001C1372 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				B3FA79271CC7CD8C001C1372 /* DQHomeViewController.h */,
+				B3FA79281CC7CD8C001C1372 /* DQHomeViewController.m */,
+				B3FA79291CC7CD8C001C1372 /* DQHomeViewController.xib */,
+				B3FA79301CC7D2CA001C1372 /* DQMyWordsViewController.h */,
+				B3FA79311CC7D2CA001C1372 /* DQMyWordsViewController.m */,
+				B3FA79321CC7D2CA001C1372 /* DQMyWordsViewController.xib */,
+				B3FA79351CC7D2D7001C1372 /* DQSetViewController.h */,
+				B3FA79361CC7D2D7001C1372 /* DQSetViewController.m */,
+				B3FA79371CC7D2D7001C1372 /* DQSetViewController.xib */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		B3FA793A1CC7DB98001C1372 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				B3FA793B1CC7DBB4001C1372 /* DQTitleChoiceView.h */,
+				B3FA793C1CC7DBB4001C1372 /* DQTitleChoiceView.m */,
+				B3FA793E1CC7DBC9001C1372 /* DQTitleChoiceView.xib */,
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		B3FA79401CC7E239001C1372 /* Add */ = {
+			isa = PBXGroup;
+			children = (
+				B373560E1CC8091A007E7FDF /* DQAddWordViewController.h */,
+				B373560F1CC8091A007E7FDF /* DQAddWordViewController.m */,
+				B37356101CC8091A007E7FDF /* DQAddWordViewController.xib */,
+			);
+			path = Add;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		B3FA78F61CC7C516001C1372 /* LoveWords */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B3FA790E1CC7C516001C1372 /* Build configuration list for PBXNativeTarget "LoveWords" */;
+			buildPhases = (
+				B08278A91D3BC57EFF87BBE2 /* Check Pods Manifest.lock */,
+				B3FA78F31CC7C516001C1372 /* Sources */,
+				B3FA78F41CC7C516001C1372 /* Frameworks */,
+				B3FA78F51CC7C516001C1372 /* Resources */,
+				1F68CDB800C25CDA91EB41EC /* Embed Pods Frameworks */,
+				9FE8CECF4D967AA4ED3992A6 /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = LoveWords;
+			productName = LoveWords;
+			productReference = B3FA78F71CC7C516001C1372 /* LoveWords.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		B3FA78EF1CC7C516001C1372 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = DQ;
+				LastUpgradeCheck = 0720;
+				ORGANIZATIONNAME = youdingquan;
+				TargetAttributes = {
+					B3FA78F61CC7C516001C1372 = {
+						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = 22N43T8TU4;
+					};
+				};
+			};
+			buildConfigurationList = B3FA78F21CC7C516001C1372 /* Build configuration list for PBXProject "LoveWords" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = B3FA78EE1CC7C516001C1372;
+			productRefGroup = B3FA78F81CC7C516001C1372 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				B3FA78F61CC7C516001C1372 /* LoveWords */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		B3FA78F51CC7C516001C1372 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B3FA793F1CC7DBC9001C1372 /* DQTitleChoiceView.xib in Resources */,
+				B3FA79391CC7D2D7001C1372 /* DQSetViewController.xib in Resources */,
+				B3FA791A1CC7C67D001C1372 /* Info.plist in Resources */,
+				B3FA792B1CC7CD8C001C1372 /* DQHomeViewController.xib in Resources */,
+				B3FA790A1CC7C516001C1372 /* LaunchScreen.storyboard in Resources */,
+				B373560D1CC80128007E7FDF /* DQWordCollectionViewCell.xib in Resources */,
+				B37356121CC8091A007E7FDF /* DQAddWordViewController.xib in Resources */,
+				B3FA79071CC7C516001C1372 /* Assets.xcassets in Resources */,
+				B3FA792F1CC7CE7C001C1372 /* list.plist in Resources */,
+				B3FA79341CC7D2CA001C1372 /* DQMyWordsViewController.xib in Resources */,
+				B3FA79051CC7C516001C1372 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1F68CDB800C25CDA91EB41EC /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9FE8CECF4D967AA4ED3992A6 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B08278A91D3BC57EFF87BBE2 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		B3FA78F31CC7C516001C1372 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B3FA792A1CC7CD8C001C1372 /* DQHomeViewController.m in Sources */,
+				B3FA793D1CC7DBB4001C1372 /* DQTitleChoiceView.m in Sources */,
+				B3FA79381CC7D2D7001C1372 /* DQSetViewController.m in Sources */,
+				B3FA79331CC7D2CA001C1372 /* DQMyWordsViewController.m in Sources */,
+				B3FA79461CC7EA6F001C1372 /* WordDao.m in Sources */,
+				B3FA79251CC7CC2F001C1372 /* AppDelegate.m in Sources */,
+				B3FA78FC1CC7C516001C1372 /* main.m in Sources */,
+				B3FA79431CC7E976001C1372 /* Word.m in Sources */,
+				B38D56AE1CCA397E00EC9A6E /* NSDate+DQHelper.m in Sources */,
+				B37356061CC7F806007E7FDF /* DQWordShowLayout.m in Sources */,
+				B38D56A91CCA2E8600EC9A6E /* Singleton.m in Sources */,
+				B37356111CC8091A007E7FDF /* DQAddWordViewController.m in Sources */,
+				B373560C1CC80128007E7FDF /* DQWordCollectionViewCell.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		B3FA79031CC7C516001C1372 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B3FA79041CC7C516001C1372 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		B3FA79081CC7C516001C1372 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B3FA79091CC7C516001C1372 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		B3FA790C1CC7C516001C1372 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		B3FA790D1CC7C516001C1372 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		B3FA790F1CC7C516001C1372 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3278C06BA9DD55F18A2CA4AE /* Pods.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PREFIX_HEADER = "${SRCROOT}/LoveWords/PrefixHeader.pch";
+				INFOPLIST_FILE = "$(SRCROOT)/LoveWords/Resource/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = ydq.LoveWords;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		B3FA79101CC7C516001C1372 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A881C91F358B9BE52059E2C6 /* Pods.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PREFIX_HEADER = "${SRCROOT}/LoveWords/PrefixHeader.pch";
+				INFOPLIST_FILE = "$(SRCROOT)/LoveWords/Resource/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = ydq.LoveWords;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		B3FA78F21CC7C516001C1372 /* Build configuration list for PBXProject "LoveWords" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B3FA790C1CC7C516001C1372 /* Debug */,
+				B3FA790D1CC7C516001C1372 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B3FA790E1CC7C516001C1372 /* Build configuration list for PBXNativeTarget "LoveWords" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B3FA790F1CC7C516001C1372 /* Debug */,
+				B3FA79101CC7C516001C1372 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = B3FA78EF1CC7C516001C1372 /* Project object */;
+}
