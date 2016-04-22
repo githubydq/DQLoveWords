@@ -87,16 +87,20 @@
 }
 -(void)addWordRightClick{
     if (self.name.text.length > 0 && self.paraphrase.text.length > 0) {
+        Word * word = [[Word alloc] init];
+        word.name = self.name.text;
+        word.paraphrase = self.paraphrase.text;
         if (self.state == AddWordStateAdd) {
-            Word * word = [[Word alloc] init];
-            word.name = self.name.text;
-            word.paraphrase = self.paraphrase.text;
             word.state = self.segment.selectedSegmentIndex;
             word.addDate = [NSDate stringByNowDate];
             [WordDao save:word];
             [self intoArrayByWord:word];
         }else{
-            [self moveArrayWithWord:self.model];
+            if ([word.name isEqualToString:self.model.name] && [word.paraphrase isEqualToString:self.model.paraphrase]) {
+                
+            }else{
+                [self moveArrayWithWord:self.model];
+            }
         }
         [self.delegate addWordCompleted];
         [self addWordLeftClick];
