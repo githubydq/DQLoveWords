@@ -16,4 +16,6 @@
 +(NSMutableArray*)findAtState:(NSInteger)state;
 
 +(NSMutableArray*)findContainString:(NSString*)str;
+
++(BOOL)deleteWith:(Word*)model;
 @end

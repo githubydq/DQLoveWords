@@ -165,6 +165,7 @@ static NSString * const identify = @"mywordcollecyioncell";
     cell.model = model;
     cell.layer.cornerRadius = 5;
     cell.layer.masksToBounds = YES;
+    [self addLongPressAtCell:cell];
     return cell;
 }
 
@@ -179,6 +180,35 @@ static NSString * const identify = @"mywordcollecyioncell";
     [self presentViewController:[[UINavigationController alloc]initWithRootViewController:addWord] animated:NO completion:nil];
 }
 
+
+#pragma mark -
+#pragma mark long press
+-(void)addLongPressAtCell:(DQWordCollectionViewCell*)cell{
+    UILongPressGestureRecognizer * longpress = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(myWordLongPress:)];
+    cell.userInteractionEnabled = YES;
+    [cell addGestureRecognizer:longpress];
+}
+-(void)myWordLongPress:(UILongPressGestureRecognizer*)longpress{
+    DQWordCollectionViewCell * cell = (DQWordCollectionViewCell *)longpress.view;
+    Word * model = cell.model;
+    NSIndexPath * indexpath = [self.myCollectionView indexPathForCell:cell];
+    UIAlertController * alert = [UIAlertController alertControllerWithTitle:@"" message:@"是否删除该单词？" preferredStyle:UIAlertControllerStyleAlert];
+    [alert addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        
+    }]];
+    [alert addAction:[UIAlertAction actionWithTitle:@"好的" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        if (self.currentState == WordStateUnfamiliar) {
+            [[Singleton shareInstance].firstArray removeObjectAtIndex:indexpath.row];
+        }else if (self.currentState == WordStateCommon) {
+            [[Singleton shareInstance].secondArray removeObjectAtIndex:indexpath.row];
+        }else if (self.currentState == WordStateProficiency) {
+            [[Singleton shareInstance].thirdArray removeObjectAtIndex:indexpath.row];
+        }
+        [WordDao deleteWith:model];
+        [self.myCollectionView deleteItemsAtIndexPaths:@[indexpath]];
+    }]];
+    [self presentViewController:alert animated:YES completion:nil];
+}
 
 #pragma mark -
 #pragma mark addWord delegate

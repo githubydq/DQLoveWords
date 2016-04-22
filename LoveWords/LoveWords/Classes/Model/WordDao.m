@@ -127,4 +127,14 @@
     return nil;
 }
 
++(BOOL)deleteWith:(Word *)model{
+    FMDatabase * db = [self getCurrentDB];
+    if ([db open]) {
+        BOOL isSuccese = [db executeUpdate:@"delete from word where name=?",model.name];
+        [db close];
+        return isSuccese;
+    }
+    return NO;
+}
+
 @end
