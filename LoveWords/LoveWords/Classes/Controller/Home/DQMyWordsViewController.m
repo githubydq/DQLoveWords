@@ -17,6 +17,7 @@
 #import "WordDao.h"
 
 #import "DQSearchViewController.h"
+#import "DQReviewViewController.h"
 
 @interface DQMyWordsViewController ()<UICollectionViewDataSource,UICollectionViewDelegate,DQAddWordDelegate>
 @property (weak, nonatomic) IBOutlet UICollectionView *myCollectionView;
@@ -101,7 +102,11 @@ static NSString * const identify = @"mywordcollecyioncell";
     self.hidesBottomBarWhenPushed = NO;
 }
 -(void)myWordsNavRightClick{
-    
+    DQReviewViewController * review = [[DQReviewViewController alloc] init];
+    UINavigationController * nav = [[UINavigationController alloc] initWithRootViewController:review];
+    self.hidesBottomBarWhenPushed = YES;
+    [self presentViewController:nav animated:NO completion:nil];
+    self.hidesBottomBarWhenPushed = NO;
 }
 
 #pragma mark -
