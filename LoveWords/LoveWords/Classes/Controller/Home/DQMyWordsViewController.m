@@ -102,11 +102,7 @@ static NSString * const identify = @"mywordcollecyioncell";
     self.hidesBottomBarWhenPushed = NO;
 }
 -(void)myWordsNavRightClick{
-    DQReviewViewController * review = [[DQReviewViewController alloc] init];
-    UINavigationController * nav = [[UINavigationController alloc] initWithRootViewController:review];
-    self.hidesBottomBarWhenPushed = YES;
-    [self presentViewController:nav animated:NO completion:nil];
-    self.hidesBottomBarWhenPushed = NO;
+    [self choiceNeedReviewWord];
 }
 
 #pragma mark -
@@ -221,5 +217,33 @@ static NSString * const identify = @"mywordcollecyioncell";
     [self beginRefresh];
 }
 
+
+#pragma mark -
+#pragma mark review myWord
+-(void)choiceNeedReviewWord{
+    UIAlertController * alert = [UIAlertController alertControllerWithTitle:@"请选择要复习的单词类型" message:@"" preferredStyle:UIAlertControllerStyleActionSheet];
+    [alert addAction:[UIAlertAction actionWithTitle:@"陌生" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [self intoReviewWithState:WordStateUnfamiliar];
+    }]];
+    [alert addAction:[UIAlertAction actionWithTitle:@"一般" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [self intoReviewWithState:WordStateCommon];
+    }]];
+    [alert addAction:[UIAlertAction actionWithTitle:@"熟悉" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [self intoReviewWithState:WordStateProficiency];
+    }]];
+    [alert addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        
+    }]];
+    [self presentViewController:alert animated:YES completion:nil];
+}
+
+-(void)intoReviewWithState:(NSInteger)state{
+    DQReviewViewController * review = [[DQReviewViewController alloc] init];
+    UINavigationController * nav = [[UINavigationController alloc] initWithRootViewController:review];
+    review.state = state;
+    self.hidesBottomBarWhenPushed = YES;
+    [self presentViewController:nav animated:NO completion:nil];
+    self.hidesBottomBarWhenPushed = NO;
+}
 
 @end

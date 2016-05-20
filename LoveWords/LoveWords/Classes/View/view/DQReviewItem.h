@@ -7,8 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-
+@class Word;
 @interface DQReviewItem : UIView
-
+@property(nonatomic,strong)Word * word;
 @property (weak, nonatomic) IBOutlet UILabel *index;
 @end

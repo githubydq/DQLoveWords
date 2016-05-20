@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface DQReviewViewController : UIViewController
-
+@property(nonatomic,assign)NSInteger state;
 @end

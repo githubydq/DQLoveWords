@@ -95,6 +95,7 @@
                 <outlet property="paraphase" destination="YXu-EO-iPg" id="2D7-Om-61U"/>
                 <outlet property="showParaphaseBtn" destination="FMY-im-1QU" id="Gz6-3V-rPE"/>
             </connections>
+            <point key="canvasLocation" x="207" y="246"/>
         </view>
     </objects>
 </document>

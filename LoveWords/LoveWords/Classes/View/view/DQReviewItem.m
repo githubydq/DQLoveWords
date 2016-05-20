@@ -7,6 +7,7 @@
 //
 
 #import "DQReviewItem.h"
+#import "Word.h"
 
 @interface DQReviewItem ()
 @property (weak, nonatomic) IBOutlet UILabel *name;
@@ -20,6 +21,11 @@
 -(void)awakeFromNib{
     [self.paraphase setHidden:YES];
     [self.showParaphaseBtn setHidden:NO];
+    
+    if (self.word) {
+        self.name.text = self.word.name;
+        self.paraphase.text = self.word.paraphrase;
+    }
 }
 
 -(void)layoutSubviews{
@@ -33,6 +39,12 @@
     self.layer.masksToBounds = YES;
     self.layer.borderWidth = 1;
     self.layer.borderColor = [[UIColor grayColor] CGColor];
+}
+
+-(void)setWord:(Word *)word{
+    _word = word;
+    self.name.text = word.name;
+    self.paraphase.text = word.paraphrase;
 }
 
 

@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		6DBDBF591B832FD0323D9FF6 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A0B365F787B2C574F2E50AC8 /* libPods.a */; };
+		B33BBBB31CEC8095008DC692 /* DQCoreBloothViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B33BBBB11CEC8095008DC692 /* DQCoreBloothViewController.m */; };
+		B33BBBB41CEC8095008DC692 /* DQCoreBloothViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B33BBBB21CEC8095008DC692 /* DQCoreBloothViewController.xib */; };
+		B33BBBB91CEC8DBE008DC692 /* DQCoreBloothTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B33BBBB71CEC8DBE008DC692 /* DQCoreBloothTableViewCell.m */; };
+		B33BBBBA1CEC8DBE008DC692 /* DQCoreBloothTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B33BBBB81CEC8DBE008DC692 /* DQCoreBloothTableViewCell.xib */; };
 		B34BEAE31CCCFDA000C8AD70 /* DQReviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B34BEAE11CCCFDA000C8AD70 /* DQReviewViewController.m */; };
 		B34BEAE41CCCFDA000C8AD70 /* DQReviewViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B34BEAE21CCCFDA000C8AD70 /* DQReviewViewController.xib */; };
 		B34BEAE71CCD00FF00C8AD70 /* DQReviewItem.m in Sources */ = {isa = PBXBuildFile; fileRef = B34BEAE61CCD00FF00C8AD70 /* DQReviewItem.m */; };
@@ -44,6 +48,12 @@
 		3278C06BA9DD55F18A2CA4AE /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		A0B365F787B2C574F2E50AC8 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		A881C91F358B9BE52059E2C6 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		B33BBBB01CEC8095008DC692 /* DQCoreBloothViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DQCoreBloothViewController.h; sourceTree = "<group>"; };
+		B33BBBB11CEC8095008DC692 /* DQCoreBloothViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DQCoreBloothViewController.m; sourceTree = "<group>"; };
+		B33BBBB21CEC8095008DC692 /* DQCoreBloothViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DQCoreBloothViewController.xib; sourceTree = "<group>"; };
+		B33BBBB61CEC8DBE008DC692 /* DQCoreBloothTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DQCoreBloothTableViewCell.h; sourceTree = "<group>"; };
+		B33BBBB71CEC8DBE008DC692 /* DQCoreBloothTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DQCoreBloothTableViewCell.m; sourceTree = "<group>"; };
+		B33BBBB81CEC8DBE008DC692 /* DQCoreBloothTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DQCoreBloothTableViewCell.xib; sourceTree = "<group>"; };
 		B34BEAE01CCCFDA000C8AD70 /* DQReviewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DQReviewViewController.h; sourceTree = "<group>"; };
 		B34BEAE11CCCFDA000C8AD70 /* DQReviewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DQReviewViewController.m; sourceTree = "<group>"; };
 		B34BEAE21CCCFDA000C8AD70 /* DQReviewViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DQReviewViewController.xib; sourceTree = "<group>"; };
@@ -120,6 +130,26 @@
 				A0B365F787B2C574F2E50AC8 /* libPods.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B33BBBAF1CEC7DA0008DC692 /* Set */ = {
+			isa = PBXGroup;
+			children = (
+				B33BBBB01CEC8095008DC692 /* DQCoreBloothViewController.h */,
+				B33BBBB11CEC8095008DC692 /* DQCoreBloothViewController.m */,
+				B33BBBB21CEC8095008DC692 /* DQCoreBloothViewController.xib */,
+			);
+			path = Set;
+			sourceTree = "<group>";
+		};
+		B33BBBB51CEC8DA3008DC692 /* tableviewcell */ = {
+			isa = PBXGroup;
+			children = (
+				B33BBBB61CEC8DBE008DC692 /* DQCoreBloothTableViewCell.h */,
+				B33BBBB71CEC8DBE008DC692 /* DQCoreBloothTableViewCell.m */,
+				B33BBBB81CEC8DBE008DC692 /* DQCoreBloothTableViewCell.xib */,
+			);
+			path = tableviewcell;
 			sourceTree = "<group>";
 		};
 		B34BEADF1CCCFD5E00C8AD70 /* Review */ = {
@@ -239,6 +269,7 @@
 				B3FA79401CC7E239001C1372 /* Add */,
 				B36D8BD51CCA3E6F00A1571E /* Search */,
 				B34BEADF1CCCFD5E00C8AD70 /* Review */,
+				B33BBBAF1CEC7DA0008DC692 /* Set */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -259,6 +290,7 @@
 			children = (
 				B3FA793A1CC7DB98001C1372 /* view */,
 				B37356081CC8010F007E7FDF /* collectionview */,
+				B33BBBB51CEC8DA3008DC692 /* tableviewcell */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -382,8 +414,10 @@
 				B3FA792B1CC7CD8C001C1372 /* DQHomeViewController.xib in Resources */,
 				B3FA790A1CC7C516001C1372 /* LaunchScreen.storyboard in Resources */,
 				B373560D1CC80128007E7FDF /* DQWordCollectionViewCell.xib in Resources */,
+				B33BBBBA1CEC8DBE008DC692 /* DQCoreBloothTableViewCell.xib in Resources */,
 				B34BEAE41CCCFDA000C8AD70 /* DQReviewViewController.xib in Resources */,
 				B37356121CC8091A007E7FDF /* DQAddWordViewController.xib in Resources */,
+				B33BBBB41CEC8095008DC692 /* DQCoreBloothViewController.xib in Resources */,
 				B3FA79071CC7C516001C1372 /* Assets.xcassets in Resources */,
 				B3FA792F1CC7CE7C001C1372 /* list.plist in Resources */,
 				B36D8BDA1CCA3E8E00A1571E /* DQSearchViewController.xib in Resources */,
@@ -456,9 +490,11 @@
 				B3FA78FC1CC7C516001C1372 /* main.m in Sources */,
 				B3FA79431CC7E976001C1372 /* Word.m in Sources */,
 				B34BEAE31CCCFDA000C8AD70 /* DQReviewViewController.m in Sources */,
+				B33BBBB31CEC8095008DC692 /* DQCoreBloothViewController.m in Sources */,
 				B38D56AE1CCA397E00EC9A6E /* NSDate+DQHelper.m in Sources */,
 				B37356061CC7F806007E7FDF /* DQWordShowLayout.m in Sources */,
 				B38D56A91CCA2E8600EC9A6E /* Singleton.m in Sources */,
+				B33BBBB91CEC8DBE008DC692 /* DQCoreBloothTableViewCell.m in Sources */,
 				B36D8BD91CCA3E8E00A1571E /* DQSearchViewController.m in Sources */,
 				B37356111CC8091A007E7FDF /* DQAddWordViewController.m in Sources */,
 				B373560C1CC80128007E7FDF /* DQWordCollectionViewCell.m in Sources */,
