@@ -48,6 +48,7 @@ static NSString * const identify = @"mywordcollecyioncell";
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     [self addKVO];
+    [self.myCollectionView reloadData];
 }
 -(void)dealloc{
     [self removeKVO];
@@ -67,9 +68,9 @@ static NSString * const identify = @"mywordcollecyioncell";
 #pragma mark -
 #pragma mark load data
 -(void)loadData{
-    [Singleton shareInstance].firstArray = [WordDao findAtState:WordStateUnfamiliar];
-    [Singleton shareInstance].secondArray = [WordDao findAtState:WordStateCommon];
-    [Singleton shareInstance].thirdArray = [WordDao findAtState:WordStateProficiency];
+//    [Singleton shareInstance].firstArray = [WordDao findAtState:WordStateUnfamiliar];
+//    [Singleton shareInstance].secondArray = [WordDao findAtState:WordStateCommon];
+//    [Singleton shareInstance].thirdArray = [WordDao findAtState:WordStateProficiency];
 }
 -(void)beginRefresh{
     [self.myCollectionView reloadData];

@@ -9,18 +9,20 @@
 #import "DQReviewViewController.h"
 #import "DQReviewItem.h"
 #import "Word.h"
+#import "WordDao.h"
 
 @interface DQReviewViewController ()
 @property (weak, nonatomic) IBOutlet UISegmentedControl *segment;
 @property(nonatomic,strong)NSMutableArray * showViewArray;
-@property(nonatomic,strong)DQReviewItem * firstView;
-@property(nonatomic,strong)DQReviewItem * secondView;
+@property(nonatomic,strong)NSMutableArray * wordArray;
 
-@property(nonatomic,assign)NSInteger currentIndex;
+@property(nonatomic,assign)NSInteger currentIndex;/**<索引*/
+//单词下标索引
+@property(nonatomic,assign)NSInteger index;
+@property(nonatomic,assign)NSInteger sum;
 @end
 
-#define FIRST_RECT CGRectMake(10, 64+10, SCREEN_WIDTH-10*2, SCREEN_HEIGHT-64*2-40-20-10*2)
-#define SECOND_RECT CGRectMake(10+5, 64+10+5, SCREEN_WIDTH-10*2-5*2, SCREEN_HEIGHT-64*2-40-20-10*2)
+#define FIRST_RECT CGRectMake(10, 64+10, SCREEN_WIDTH-10*2, SCREEN_HEIGHT-64-30-10*3)
 
 @implementation DQReviewViewController
 
@@ -28,7 +30,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     self.automaticallyAdjustsScrollViewInsets = NO;
-    
+    [self loadWordData];
     [self configUI];
     [self configNav];
 }
@@ -38,11 +40,27 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(void)viewDidLayoutSubviews{
+    [super viewDidLayoutSubviews];
+    if ([[UIDevice currentDevice].systemVersion floatValue] > 7.0) {
+        for (UIView * v in self.showViewArray) {
+            v.frame = FIRST_RECT;
+        }
+    }
+    [self.view layoutSubviews];
+}
+
 -(NSInteger)currentIndex{
     if (!_currentIndex) {
         _currentIndex = 0;
     }
     return _currentIndex;
+}
+-(NSMutableArray *)showViewArray{
+    if (!_showViewArray) {
+        _showViewArray = [[NSMutableArray alloc] init];
+    }
+    return _showViewArray;
 }
 
 #pragma mark -
@@ -53,68 +71,59 @@
     self.segment.momentary = YES;
     self.segment.selectedSegmentIndex = -1;
     
-    DQReviewItem * item1 = [[[NSBundle mainBundle] loadNibNamed:@"DQReviewItem" owner:nil options:nil] lastObject];
-    item1.frame = FIRST_RECT;
-    item1.backgroundColor = [UIColor whiteColor];
-    
-    DQReviewItem * item2 = [[[NSBundle mainBundle] loadNibNamed:@"DQReviewItem" owner:nil options:nil] lastObject];
-    item2.frame = FIRST_RECT;
-    item2.backgroundColor = [UIColor whiteColor];
-    
-    [self.view addSubview:item2];
-    [self.view addSubview:item1];
-    
-    item1.index.text = @"2/6";
-    item2.index.text = @"3/6";
-    
-    self.showViewArray = [NSMutableArray arrayWithArray:@[item1,item2]];
-    
-    [self loadWordData];
+    for (NSInteger i = 0 ; i < 2 ; i++) {
+        if (self.wordArray.count > i) {
+            DQReviewItem * item = [[[NSBundle mainBundle] loadNibNamed:@"DQReviewItem" owner:nil options:nil] lastObject];
+            item.frame = CGRectMake(10, 64+10, 355, 543);
+            item.backgroundColor = [UIColor whiteColor];
+            item.word = self.wordArray[i];
+            item.index.text = [NSString stringWithFormat:@"%ld/%ld", i+1, self.sum];
+            [self.view addSubview:item];
+            [self.showViewArray addObject:item];
+            self.index += 1;
+        }
+    }
+    [self.view bringSubviewToFront:self.showViewArray.firstObject];
 }
 
 -(void)addItemInsertBack{
-    DQReviewItem * item2 = [[[NSBundle mainBundle] loadNibNamed:@"DQReviewItem" owner:nil options:nil] lastObject];
-    item2.frame = FIRST_RECT;
-    item2.backgroundColor = [UIColor whiteColor];
-    
-    [self.view insertSubview:item2 belowSubview:self.showViewArray.lastObject];
-    
-    item2.index.text = @"3/6";
-    
-    [self.showViewArray addObject:item2];
+    DQReviewItem * item = [[[NSBundle mainBundle] loadNibNamed:@"DQReviewItem" owner:nil options:nil] lastObject];
+    item.frame = FIRST_RECT;
+    item.backgroundColor = [UIColor whiteColor];
+    [self.view insertSubview:item belowSubview:self.showViewArray.lastObject];
+    item.word = self.wordArray[self.currentIndex+1];
+    item.index.text = [NSString stringWithFormat:@"%ld/%ld", self.index, self.sum];
+    [self.showViewArray addObject:item];
+    self.index += 1;
 }
 
 #pragma mark -
 #pragma mark load data
 -(void)loadWordData{
-    Word * firstWord = [[Word alloc] init];
-    Word * secondWord = [[Word alloc] init];
+    self.wordArray = [NSMutableArray new];
     switch (self.state) {
         case WordStateUnfamiliar:
-            firstWord = [Singleton shareInstance].firstArray[self.currentIndex];
-            secondWord = [Singleton shareInstance].firstArray[self.currentIndex+1];
+            self.wordArray = [NSMutableArray arrayWithArray:[Singleton shareInstance].firstArray];
             break;
         case WordStateCommon:
-            firstWord = [Singleton shareInstance].secondArray[self.currentIndex];
-            secondWord = [Singleton shareInstance].secondArray[self.currentIndex+1];
+            self.wordArray = [NSMutableArray arrayWithArray:[Singleton shareInstance].secondArray];
             break;
         case WordStateProficiency:
-            firstWord = [Singleton shareInstance].thirdArray[self.currentIndex];
-            secondWord = [Singleton shareInstance].thirdArray[self.currentIndex+1];
+            self.wordArray = [NSMutableArray arrayWithArray:[Singleton shareInstance].thirdArray];
             break;
         default:
             break;
     }
-    for (int i = 0 ; i < 2; i++) {
-        DQReviewItem * item = self.showViewArray[i];
-        item.word = i==0 ? firstWord:secondWord;
-    }
+    NSLog(@"%p",self.wordArray);
+    NSLog(@"%p",[Singleton shareInstance].secondArray);
+    
+    self.index = 1;
+    self.sum = self.wordArray.count;
 }
 
 #pragma mark -
 #pragma mark initialize nav
 -(void)configNav{
-    self.automaticallyAdjustsScrollViewInsets = NO;
     self.navigationItem.title = @"复习检测";
     
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"down30x30"] style:UIBarButtonItemStylePlain target:self action:@selector(reviewLeftClick)];
@@ -129,85 +138,77 @@
 #pragma mark -
 #pragma mark segment click
 - (IBAction)segmentClick:(UISegmentedControl *)sender {
-//    NSInteger count = self.view.subviews.count-1;
-//    DQReviewItem * v = self.view.subviews[count];
-    [self removeAnimation:self.showViewArray.firstObject];
-//    NSLog(@"end");
+    [self removeAnimation:self.showViewArray.firstObject State:sender.selectedSegmentIndex];
 }
 
 
 
--(void)removeAnimation:(DQReviewItem *)v{
-    [self addItemInsertBack];
+-(void)removeAnimation:(DQReviewItem *)v State:(NSInteger)state{
+//    CGPoint center = v.center;
+//    center.x -= v.bounds.size.height/2.0/sqrt(2.0);
+//    center.y += v.bounds.size.height/2.0*(1-1/sqrt(2.0));
     
-    CGPoint center = v.center;
-    center.x -= v.bounds.size.height/2.0/sqrt(2.0);
-    center.y += v.bounds.size.height/2.0*(1-1/sqrt(2.0));
+    NSLog(@"1%@",self.wordArray);
+    //保存单词状态
+    Word * word = self.wordArray[self.currentIndex];
+    [self moveWord:word State:state];
+    NSLog(@"12%@",self.wordArray);
+    
     [UIView animateWithDuration:0.4 animations:^{
-        v.center = center;
-        v.transform = CGAffineTransformMakeRotation(-M_PI_4);
-        v.alpha = 0;
+        //根据熟悉度选择动画
+        if (self.state == state) {
+            v.transform = CGAffineTransformMakeScale(1.2, 1.2);
+        }else if (self.state < state){
+            v.transform = CGAffineTransformMakeTranslation(SCREEN_WIDTH, 0);
+        }else if (self.state > state){
+            v.transform = CGAffineTransformMakeTranslation(-SCREEN_WIDTH, 0);
+        }
+        v.alpha = 0.0;
     } completion:^(BOOL finished) {
-        [v removeFromSuperview];
+        //将视图移除
         [self.showViewArray removeObjectAtIndex:0];
+        [v removeFromSuperview];
+        //判断是否有下个
+        if (self.currentIndex + 1 >= self.wordArray.count) {
+            return ;
+        }else{
+            //判断状态是否改变
+            if (self.state != state) {
+                [self.wordArray removeObjectAtIndex:self.currentIndex];
+            }else{
+                self.currentIndex += 1;
+            }
+            //判断是否有下下个
+            if (self.currentIndex + 1 < self.wordArray.count) {
+                [self addItemInsertBack];
+            }
+        }
+        NSLog(@"2:%@",self.wordArray);
     }];
-    
-//    [UIView animateKeyframesWithDuration:1.7 delay:0 options:UIViewKeyframeAnimationOptionLayoutSubviews animations:^{
-//        [UIView addKeyframeWithRelativeStartTime:0 relativeDuration:0.3 animations:^{
-//            v.center = center;
-//            v.transform = CGAffineTransformMakeRotation(-M_PI_4);
-//            v.alpha = 0;
-//        }];
-//        [UIView addKeyframeWithRelativeStartTime:0.3 relativeDuration:0.0 animations:^{
-//            v.center = self.secondView.center;
-//            v.bounds = self.secondView.bounds;
-//            v.transform = CGAffineTransformMakeRotation(0);
-//            v.word = self.secondView.word;
-//            v.index.text = self.secondView.index.text;
-//            v.alpha = 1;
-//        }];
-//        [UIView addKeyframeWithRelativeStartTime:0.3 relativeDuration:0.6 animations:^{
-//        }];
-//        [UIView addKeyframeWithRelativeStartTime:0.9 relativeDuration:0.1 animations:^{
-//            v.bounds = CGRectMake(0, 0, v.bounds.size.width+2*5, v.bounds.size.height);
-//            v.center = CGPointMake(v.center.x, v.center.y-5);
-//            
-//        }];
-//    } completion:^(BOOL finished) {
-//        
-//    }];
-    
-//    // 平移动画
-//    CABasicAnimation *a1 = [CABasicAnimation animation];
-//    a1.keyPath = @"transform.translation.y";
-//    a1.toValue = @(v.bounds.size.height/2.0*(1-1/sqrt(2.0)));
-//    // 缩放动画
-//    CABasicAnimation *a2 = [CABasicAnimation animation];
-//    a2.keyPath = @"transform.translation.x";
-//    a2.toValue = @(-v.bounds.size.height/2.0/sqrt(2.0));
-//    // 旋转动画
-//    CABasicAnimation *a3 = [CABasicAnimation animation];
-//    a3.keyPath = @"transform.rotation";
-//    a3.toValue = @(-M_PI_4);
-//    // 渐变动画
-//    CABasicAnimation *a4 = [CABasicAnimation animation];
-//    a4.keyPath = @"transform.alpha";
-//    a4.toValue = @(0);
-//    
-//    // 组动画
-//    CAAnimationGroup *groupAnima = [CAAnimationGroup animation];
-//    
-//    groupAnima.animations = @[a1, a2, a3, a4];
-//    
-//    //设置组动画的时间
-//    groupAnima.duration = 0.4;
-//    groupAnima.fillMode = kCAFillModeForwards;
-//    groupAnima.removedOnCompletion = NO;
-//    groupAnima.delegate = self;
-//    
-//    [v.layer addAnimation:groupAnima forKey:nil];
 }
 
+#pragma mark -
+#pragma mark 移动单词
+-(void)moveWord:(Word*)model State:(NSInteger)state{
+    if (model.state != state) {
+        if (model.state == WordStateUnfamiliar) {
+            [[Singleton shareInstance].firstArray removeObjectAtIndex:self.currentIndex];
+        }else if (model.state == WordStateCommon){
+            [[Singleton shareInstance].secondArray removeObjectAtIndex:self.currentIndex];
+        }else if (model.state == WordStateProficiency){
+            [[Singleton shareInstance].thirdArray removeObjectAtIndex:self.currentIndex];
+        }
+        model.state = state;
+        [WordDao update:model];
+        if (model.state == WordStateUnfamiliar) {
+            [[Singleton shareInstance].firstArray insertObject:model atIndex:0];
+        }else if (model.state == WordStateCommon){
+            [[Singleton shareInstance].secondArray insertObject:model atIndex:0];
+        }else if (model.state == WordStateProficiency){
+            [[Singleton shareInstance].thirdArray insertObject:model atIndex:0];
+        }
+    }
+}
 
 
 @end

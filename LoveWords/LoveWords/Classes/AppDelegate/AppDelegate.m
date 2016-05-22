@@ -7,6 +7,8 @@
 //
 
 #import "AppDelegate.h"
+#import "WordDao.h"
+#import "Word.h"
 
 @interface AppDelegate ()
 
@@ -19,6 +21,11 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    //数据加载
+    [Singleton shareInstance].firstArray = [WordDao findAtState:WordStateUnfamiliar];
+    [Singleton shareInstance].secondArray = [WordDao findAtState:WordStateCommon];
+    [Singleton shareInstance].thirdArray = [WordDao findAtState:WordStateProficiency];
+    
     return YES;
 }
 

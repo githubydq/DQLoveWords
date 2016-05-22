@@ -18,9 +18,9 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="iPt-8i-JAt">
-                    <rect key="frame" x="63" y="560" width="250" height="29"/>
+                    <rect key="frame" x="63" y="560" width="250" height="31"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="28" id="HA5-25-Esh"/>
+                        <constraint firstAttribute="height" constant="30" id="HA5-25-Esh"/>
                     </constraints>
                     <segments>
                         <segment title="陌生"/>
@@ -35,11 +35,11 @@
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="iPt-8i-JAt" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="2:3" id="U8t-Ic-Zxn"/>
-                <constraint firstAttribute="bottom" secondItem="iPt-8i-JAt" secondAttribute="bottom" constant="12" id="VhE-i1-I6F"/>
+                <constraint firstAttribute="bottom" secondItem="iPt-8i-JAt" secondAttribute="bottom" constant="10" id="VhE-i1-I6F"/>
                 <constraint firstItem="iPt-8i-JAt" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="yoV-Tg-Iq4"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="234.5" y="247"/>
+            <point key="canvasLocation" x="120.5" y="305"/>
         </view>
     </objects>
 </document>

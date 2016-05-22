@@ -86,10 +86,12 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 -(void)addWordRightClick{
+    //判断内容是否填完整
     if (self.name.text.length > 0 && self.paraphrase.text.length > 0) {
         Word * word = [[Word alloc] init];
         word.name = self.name.text;
         word.paraphrase = self.paraphrase.text;
+        //判断是否添加或修改
         if (self.state == AddWordStateAdd) {
             word.state = self.segment.selectedSegmentIndex;
             word.addDate = [NSDate stringByNowDate];
