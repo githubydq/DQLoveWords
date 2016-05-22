@@ -32,7 +32,7 @@ static NSString * const identify = @"mywordcollecyioncell";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.view.backgroundColor = [UIColor grayColor];
+    self.view.backgroundColor = BG_COLOR;
     self.automaticallyAdjustsScrollViewInsets = NO;
     [self loadData];
     [self configTitleView];
@@ -113,7 +113,7 @@ static NSString * const identify = @"mywordcollecyioncell";
     [self.myCollectionView setCollectionViewLayout:self.layout];
     [self.myCollectionView registerNib:[UINib nibWithNibName:@"DQWordCollectionViewCell" bundle:nil] forCellWithReuseIdentifier:identify];
     self.myCollectionView.showsVerticalScrollIndicator = NO;
-    self.myCollectionView.backgroundColor = [UIColor grayColor];
+    self.myCollectionView.backgroundColor = BG_COLOR;
 }
 
 #pragma mark add collection kvo

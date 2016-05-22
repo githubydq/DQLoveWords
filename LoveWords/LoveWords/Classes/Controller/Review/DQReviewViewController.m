@@ -13,8 +13,8 @@
 
 @interface DQReviewViewController ()
 @property (weak, nonatomic) IBOutlet UISegmentedControl *segment;
-@property(nonatomic,strong)NSMutableArray * showViewArray;
-@property(nonatomic,strong)NSMutableArray * wordArray;
+@property(nonatomic,strong)NSMutableArray * showViewArray;/**<展示视图数组*/
+@property(nonatomic,strong)NSMutableArray * wordArray;/**<单词数组*/
 
 @property(nonatomic,assign)NSInteger currentIndex;/**<索引*/
 //单词下标索引
@@ -66,7 +66,7 @@
 #pragma mark -
 #pragma mark initialize UI
 -(void)configUI{
-    self.view.backgroundColor = [UIColor blueColor];
+    self.view.backgroundColor = BG_COLOR;
     
     self.segment.momentary = YES;
     self.segment.selectedSegmentIndex = -1;
@@ -114,8 +114,9 @@
         default:
             break;
     }
-    NSLog(@"%p",self.wordArray);
-    NSLog(@"%p",[Singleton shareInstance].secondArray);
+    //监测地址拷贝
+//    NSLog(@"%p",self.wordArray);
+//    NSLog(@"%p",[Singleton shareInstance].secondArray);
     
     self.index = 1;
     self.sum = self.wordArray.count;
