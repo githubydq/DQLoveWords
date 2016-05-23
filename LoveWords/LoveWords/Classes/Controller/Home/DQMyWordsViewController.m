@@ -198,7 +198,7 @@ static NSString * const identify = @"mywordcollecyioncell";
     [alert addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
         
     }]];
-    [alert addAction:[UIAlertAction actionWithTitle:@"好的" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+    [alert addAction:[UIAlertAction actionWithTitle:@"好的" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
         if (self.currentState == WordStateUnfamiliar) {
             [[Singleton shareInstance].firstArray removeObjectAtIndex:indexpath.row];
         }else if (self.currentState == WordStateCommon) {

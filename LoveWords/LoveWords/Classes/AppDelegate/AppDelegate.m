@@ -70,7 +70,7 @@
     }
     
     //单词复习时间初始化
-    if (![[NSUserDefaults standardUserDefaults] dataForKey:REVIEW_TIME]) {
+    if (![[NSUserDefaults standardUserDefaults] objectForKey:REVIEW_TIME]) {
         NSDate * date = [NSDate dateWithTimeIntervalSinceNow:-60*60*24*3];
         [[NSUserDefaults standardUserDefaults] setObject:date forKey:REVIEW_TIME];
         [[NSUserDefaults standardUserDefaults] synchronize];
