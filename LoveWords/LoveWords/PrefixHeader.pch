@@ -18,4 +18,7 @@
 
 #define BG_COLOR [UIColor colorWithRed:215.0/255.0 green:215.0/255.0 blue:215.0/255.0 alpha:1.0]
 
+//复习时间
+#define REVIEW_TIME @"myreviewtime"
+
 #endif /* PrefixHeader_pch */

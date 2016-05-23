@@ -40,6 +40,17 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    //注销通知
+    for (UILocalNotification * notification in [[UIApplication sharedApplication] scheduledLocalNotifications]) {
+        [[UIApplication sharedApplication] cancelLocalNotification:notification];
+    }
+    //设置复习时间
+    [[NSUserDefaults standardUserDefaults] setObject:[NSDate dateWithTimeIntervalSinceNow:0] forKey:REVIEW_TIME];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
 -(void)viewDidLayoutSubviews{
     [super viewDidLayoutSubviews];
     if ([[UIDevice currentDevice].systemVersion floatValue] > 7.0) {
